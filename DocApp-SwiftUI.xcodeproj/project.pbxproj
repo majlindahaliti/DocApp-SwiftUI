@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		57DCB4529D8DFC11844F5784 /* Pods_DocApp_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB691F2B5E1826B24F893FF /* Pods_DocApp_SwiftUI.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		3959C83916F75CF2EB2C2BD5 /* Pods-DocApp-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocApp-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		7AB691F2B5E1826B24F893FF /* Pods_DocApp_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DocApp_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F56F5D8C60DAE2B3CFA77613 /* Pods-DocApp-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocApp-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		F7E327982DA7F1A900325828 /* DocApp-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DocApp-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57DCB4529D8DFC11844F5784 /* Pods_DocApp_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BEFA6CC7055552EAB1DC3F71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AB691F2B5E1826B24F893FF /* Pods_DocApp_SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F36B8B7D44FC1AABB3323699 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3959C83916F75CF2EB2C2BD5 /* Pods-DocApp-SwiftUI.debug.xcconfig */,
+				F56F5D8C60DAE2B3CFA77613 /* Pods-DocApp-SwiftUI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F7E3278F2DA7F1A900325828 = {
 			isa = PBXGroup;
 			children = (
 				F7E3279A2DA7F1A900325828 /* DocApp-SwiftUI */,
 				F7E327992DA7F1A900325828 /* Products */,
+				F36B8B7D44FC1AABB3323699 /* Pods */,
+				BEFA6CC7055552EAB1DC3F71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7E327A62DA7F1AA00325828 /* Build configuration list for PBXNativeTarget "DocApp-SwiftUI" */;
 			buildPhases = (
+				41F19DA3CD01DAD959308876 /* [CP] Check Pods Manifest.lock */,
 				F7E327942DA7F1A900325828 /* Sources */,
 				F7E327952DA7F1A900325828 /* Frameworks */,
 				F7E327962DA7F1A900325828 /* Resources */,
+				671DF20E9AFB24C1B9C28B17 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				F7E3279A2DA7F1A900325828 /* DocApp-SwiftUI */,
 			);
 			name = "DocApp-SwiftUI";
-			packageProductDependencies = (
-			);
 			productName = "DocApp-SwiftUI";
 			productReference = F7E327982DA7F1A900325828 /* DocApp-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +153,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41F19DA3CD01DAD959308876 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DocApp-SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		671DF20E9AFB24C1B9C28B17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F7E327942DA7F1A900325828 /* Sources */ = {
@@ -259,6 +328,7 @@
 		};
 		F7E327A72DA7F1AA00325828 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3959C83916F75CF2EB2C2BD5 /* Pods-DocApp-SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -267,6 +337,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DocApp-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = A966DJ88X2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DocApp-SwiftUI/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -289,6 +360,7 @@
 		};
 		F7E327A82DA7F1AA00325828 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F56F5D8C60DAE2B3CFA77613 /* Pods-DocApp-SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +369,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DocApp-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = A966DJ88X2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DocApp-SwiftUI/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
