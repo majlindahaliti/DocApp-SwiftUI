@@ -26,13 +26,13 @@ struct HomeView: View {
                             .roundedCorner(30, corners: [.topLeft, .topRight])
                             .ignoresSafeArea(edges: [.bottom])
                         HStack {
-                            Text("Main title").font(.title2)
+                            Text(modelData.pages.title).font(Fonts.poppinsMedium(size: 20))
                             
                             Spacer()
                             
                             Button("All pages") {
                                 path.append("AllPages")
-                            }
+                            }.font(Fonts.poppinsRegular(size: 14))
                         }
                         .padding()
                         ScrollView {
