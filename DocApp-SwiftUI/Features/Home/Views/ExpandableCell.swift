@@ -11,6 +11,7 @@ struct ExpandableCell: View {
     @State private var tapped: Bool = false
     var row: Int
     var section: SectionItem
+    var onSelect: (SectionItem) -> Void
     var isExpandable: Bool {
         section.items != nil && !section.items!.isEmpty
     }
@@ -38,6 +39,10 @@ struct ExpandableCell: View {
                         tapped.toggle()
                     }
                 }
+                else{
+                    //navigate to page details
+                    onSelect(section)
+                }
             }
 
 
@@ -47,7 +52,7 @@ struct ExpandableCell: View {
                 VStack(spacing: 0) {
                     if let subsections = section.items {
                         ForEach(subsections, id: \.title) { subsection in
-                            ExpandableCell(row: row + 1, section: subsection)
+                            ExpandableCell(row: row + 1, section: subsection, onSelect: onSelect)
                                 .padding(.leading, 20)
                         }
                     }
@@ -81,5 +86,15 @@ struct ExpandableCell: View {
 
 
 #Preview {
-    ExpandableCell(row: 0, section: SectionItem(type: "page", title: "Test", items: [SectionItem(type: "section", title: "Test", items: [SectionItem(type: "section", title: "Test")]), SectionItem(type: "section", title: "Test")]))
+    ExpandableCell(
+        row: 0,
+        section: SectionItem(
+            type: "page",
+            title: "Test"
+        ),
+        onSelect: { selectedSection in
+            print("Selected Section: \(selectedSection.title)")
+        }
+    )
 }
+

@@ -39,8 +39,10 @@ struct HomeView: View {
                             VStack(spacing: 0) {
                                 ForEach(modelData.pages.items, id: \.title) { section in
                                     if let items = section.items, !items.isEmpty {
-                                        ExpandableCell(row: 0, section: section)
-                                            .padding(.horizontal)
+                                        ExpandableCell(row: 0, section: section) { selectedSection in
+                                            path.append(selectedSection)
+                                        }
+                                        .padding(.horizontal)
                                     }
                                 }
                             }
@@ -49,6 +51,9 @@ struct HomeView: View {
                         .navigationBarTitleDisplayMode(.inline)
                     }
                 }
+            }
+            .navigationDestination(for: SectionItem.self) { section in
+                PageDetails(section: section)
             }
             .navigationDestination(for: String.self) { value in
                 if value == "AllPages" {

@@ -19,14 +19,3 @@ struct Page: Codable, Hashable {
     var title: String
     var items: [SectionItem]
 }
-
-
-class DataModel {
-    var question: String
-    var answer: String
-    
-    init(question: String, answer: String) {
-        self.question = question
-        self.answer = answer
-    }
-}
