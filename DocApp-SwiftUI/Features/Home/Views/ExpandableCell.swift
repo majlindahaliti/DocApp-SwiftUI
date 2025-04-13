@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ExpandableCell: View {
     @State private var tapped: Bool = false
@@ -20,6 +21,14 @@ struct ExpandableCell: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
+                if let imgUrl = section.src{
+                    KFImage(URL(string: imgUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .roundedCorner(2, corners: [.bottomLeft, .bottomRight])
+                }
+                
                 Text(section.title)
                     .font(fontForLevel(row))
                     .foregroundColor(colorForLevel(row))
