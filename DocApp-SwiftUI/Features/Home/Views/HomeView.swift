@@ -11,8 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var text = ""
     @State private var path = NavigationPath()
-    
-    @Environment(ModelData.self) var modelData
+    @StateObject private var homeViewModel = HomeViewModel()
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -26,7 +25,9 @@ struct HomeView: View {
                             .roundedCorner(30, corners: [.topLeft, .topRight])
                             .ignoresSafeArea(edges: [.bottom])
                         HStack {
-                            Text(modelData.pages.title).font(Fonts.poppinsMedium(size: 20))
+                            if let title = homeViewModel.page?.title {
+                                Text(title).font(Fonts.poppinsMedium(size: 20))
+                            }
                             
                             Spacer()
                             
@@ -37,12 +38,14 @@ struct HomeView: View {
                         .padding()
                         ScrollView {
                             VStack(spacing: 0) {
-                                ForEach(modelData.pages.items, id: \.title) { section in
-                                    if let items = section.items, !items.isEmpty {
-                                        ExpandableCell(row: 0, section: section) { selectedSection in
-                                            path.append(selectedSection)
+                                if let items = homeViewModel.page?.items {
+                                    ForEach(items, id: \.title) { section in
+                                        if let sectionItems = section.items, !sectionItems.isEmpty {
+                                            ExpandableCell(row: 0, section: section) { selectedSection in
+                                                path.append(selectedSection)
+                                            }
+                                            .padding(.horizontal)
                                         }
-                                        .padding(.horizontal)
                                     }
                                 }
                             }
@@ -51,6 +54,9 @@ struct HomeView: View {
                         .navigationBarTitleDisplayMode(.inline)
                     }
                 }
+            }
+            .onAppear {
+                homeViewModel.fetchPageDetails()
             }
             .navigationDestination(for: SectionItem.self) { section in
                 PageDetails(section: section)
@@ -65,6 +71,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView().environment(ModelData())
+    HomeView()
 }
 

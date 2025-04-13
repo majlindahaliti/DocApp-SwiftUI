@@ -7,5 +7,6 @@ target 'DocApp-SwiftUI' do
 
   # Pods for DocApp-SwiftUI
   pod 'Kingfisher'
+  pod 'Alamofire'
 
 end
