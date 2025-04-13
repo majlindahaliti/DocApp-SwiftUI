@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct AllPagesList: View {
-    @Environment(ModelData.self) var modelData
+    let filteredPages: [SectionItem]
     
-     var body: some View {
-             List(modelData.pageItems, id: \.self) { item in
-                 PageRow(page: item)
-             }
-             .navigationBarHidden(true)
-             .listStyle(PlainListStyle())
-     }
+    var body: some View {
+        List(filteredPages, id: \.self) { item in
+            PageRow(page: item)
+        }
+        .navigationBarHidden(true)
+        .listStyle(PlainListStyle())
+    }
 }
 
 
 #Preview {
-    AllPagesList().environment(ModelData())
+    AllPagesList(filteredPages: ModelData().pageItems)
 }

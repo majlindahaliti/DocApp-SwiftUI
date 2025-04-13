@@ -7,10 +7,12 @@
 import SwiftUI
 
 struct AllPagesView: View {
+    let filteredPages: [SectionItem]
+    
     var body: some View {
         VStack() {
             CustomNavigationBar()
-            AllPagesList()
+            AllPagesList(filteredPages: filteredPages)
         }
         .edgesIgnoringSafeArea(.top)
     }
@@ -19,5 +21,5 @@ struct AllPagesView: View {
 
 
 #Preview {
-    AllPagesView().environment(ModelData())
+    AllPagesView(filteredPages: ModelData().pageItems)
 }

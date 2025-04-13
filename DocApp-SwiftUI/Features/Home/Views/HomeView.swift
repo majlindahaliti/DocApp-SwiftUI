@@ -32,7 +32,7 @@ struct HomeView: View {
                             Spacer()
                             
                             Button("All pages") {
-                                path.append("AllPages")
+                                path.append(homeViewModel.filteredPages)
                             }.font(Fonts.poppinsRegular(size: 14))
                         }
                         .padding()
@@ -61,10 +61,8 @@ struct HomeView: View {
             .navigationDestination(for: SectionItem.self) { section in
                 PageDetails(section: section)
             }
-            .navigationDestination(for: String.self) { value in
-                if value == "AllPages" {
-                    AllPagesView()
-                }
+            .navigationDestination(for: [SectionItem].self) { filteredPages in
+                AllPagesView(filteredPages: filteredPages)
             }
         }
     }

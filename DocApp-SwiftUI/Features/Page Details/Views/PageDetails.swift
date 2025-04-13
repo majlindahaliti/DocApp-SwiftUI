@@ -38,17 +38,6 @@ struct PageDetails: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    // Custom back action (if needed)
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.white)
-                        .imageScale(.large)
-                }
-            }
-        }
         .ignoresSafeArea(edges: .top)
         .background(Color.white)
     }
