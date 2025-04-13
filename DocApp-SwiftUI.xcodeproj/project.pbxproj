@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		57DCB4529D8DFC11844F5784 /* Pods_DocApp_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB691F2B5E1826B24F893FF /* Pods_DocApp_SwiftUI.framework */; };
+		F7084FDC2DAC5A97003A96B3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7084FDB2DAC5A97003A96B3 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3959C83916F75CF2EB2C2BD5 /* Pods-DocApp-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocApp-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		7AB691F2B5E1826B24F893FF /* Pods_DocApp_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DocApp_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56F5D8C60DAE2B3CFA77613 /* Pods-DocApp-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocApp-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-DocApp-SwiftUI/Pods-DocApp-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		F7084FDB2DAC5A97003A96B3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F7E327982DA7F1A900325828 /* DocApp-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DocApp-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 		F7E3278F2DA7F1A900325828 = {
 			isa = PBXGroup;
 			children = (
+				F7084FDB2DAC5A97003A96B3 /* Launch Screen.storyboard */,
 				F7E3279A2DA7F1A900325828 /* DocApp-SwiftUI */,
 				F7E327992DA7F1A900325828 /* Products */,
 				F36B8B7D44FC1AABB3323699 /* Pods */,
@@ -149,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7084FDC2DAC5A97003A96B3 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
