@@ -18,7 +18,7 @@ struct HomeView: View {
                 Color.main
                     .ignoresSafeArea()
                 VStack {
-                    SearchBarView(text: $homeViewModel.searchText)
+                    SearchBarView(text: $homeViewModel.searchText).padding()
                     ZStack(alignment: .top) {
                         Color.white
                             .roundedCorner(30, corners: [.topLeft, .topRight])
@@ -36,13 +36,27 @@ struct HomeView: View {
                         }
                         .padding()
                         ScrollView {
-                            VStack(spacing: 0) {
-                                ForEach(homeViewModel.filteredSections, id: \.title) { section in
-                                    if let sectionItems = section.items, !sectionItems.isEmpty {
-                                        ExpandableCell(row: 0, section: section) { selectedSection in
-                                            path.append(selectedSection)
+                            if homeViewModel.filteredSections.isEmpty {
+                                VStack {
+                                    Spacer()
+                                    Text("No Data")
+                                        .font(Fonts.poppinsRegular(size: 16))
+                                        .foregroundColor(.black)
+                                    Text("No results found")
+                                        .font(Fonts.poppinsRegular(size: 14))
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
+                                .padding(.top, 150)
+                            } else {
+                                VStack(spacing: 0) {
+                                    ForEach(homeViewModel.filteredSections, id: \.title) { section in
+                                        if let sectionItems = section.items, !sectionItems.isEmpty {
+                                            ExpandableCell(row: 0, section: section) { selectedSection in
+                                                path.append(selectedSection)
+                                            }
+                                            .padding(.horizontal)
                                         }
-                                        .padding(.horizontal)
                                     }
                                 }
                             }
