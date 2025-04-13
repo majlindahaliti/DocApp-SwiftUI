@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var text = ""
     @State private var path = NavigationPath()
     @StateObject private var homeViewModel = HomeViewModel()
     
@@ -19,7 +18,7 @@ struct HomeView: View {
                 Color.main
                     .ignoresSafeArea()
                 VStack {
-                    SearchBarView(text: $text).padding(16)
+                    SearchBarView(text: $homeViewModel.searchText)
                     ZStack(alignment: .top) {
                         Color.white
                             .roundedCorner(30, corners: [.topLeft, .topRight])
@@ -32,20 +31,18 @@ struct HomeView: View {
                             Spacer()
                             
                             Button("All pages") {
-                                path.append(homeViewModel.filteredPages)
+                                path.append(homeViewModel.allPageItems)
                             }.font(Fonts.poppinsRegular(size: 14))
                         }
                         .padding()
                         ScrollView {
                             VStack(spacing: 0) {
-                                if let items = homeViewModel.page?.items {
-                                    ForEach(items, id: \.title) { section in
-                                        if let sectionItems = section.items, !sectionItems.isEmpty {
-                                            ExpandableCell(row: 0, section: section) { selectedSection in
-                                                path.append(selectedSection)
-                                            }
-                                            .padding(.horizontal)
+                                ForEach(homeViewModel.filteredSections, id: \.title) { section in
+                                    if let sectionItems = section.items, !sectionItems.isEmpty {
+                                        ExpandableCell(row: 0, section: section) { selectedSection in
+                                            path.append(selectedSection)
                                         }
+                                        .padding(.horizontal)
                                     }
                                 }
                             }
