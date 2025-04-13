@@ -71,8 +71,12 @@ Time spent for this assignment is approximately 12 hours, 10 hours development a
 
 ## Final implementation
 
-https://github.com/user-attachments/assets/5b5402e3-014a-40ab-8836-906dddefbd3f
 
+
+
+
+
+https://github.com/user-attachments/assets/45fae5e5-827c-44ce-8367-6ae77a0a28c1
 
 
 
